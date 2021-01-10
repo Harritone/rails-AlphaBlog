@@ -17,8 +17,9 @@
           <%= article.description %>
         </td>
         <td>
-          <%= link_to 'show', article %>
-          <%= link_to 'edit', edit_article_path(article) %>
+          <%= link_to 'Show', article %>
+          <%= link_to 'Edit', edit_article_path(article) %>
+          <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you shure?' } %>
         </td>
       </tr>
     <% end %>
