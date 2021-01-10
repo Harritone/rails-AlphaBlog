@@ -1,3 +1,9 @@
 <h1>Showing Article Details</h1>
-<p><strong>Title:</strong><%= @article.title %></div></p>
+<p><strong>Title:</strong><%= @article.title %></div>
+</p>
 <p><strong>Descripton:</strong><%= @article.description %></p>
+<br>
+<br>
+<br>
+<%= link_to 'Back', articles_path %> |
+<%= link_to 'Edit', edit_article_path(@article) %>
