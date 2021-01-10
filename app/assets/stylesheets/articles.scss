@@ -1,0 +1,36 @@
+.form {
+  &-group {
+    margin-bottom: 20px;
+  }
+
+  &-label {
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  &-input {
+    padding: 8px 5px;
+    width: 500px;
+  }
+
+  &-textarea {
+    font-size: 1.2rem;
+    width: 500px;
+    height: 400px;
+    padding: 8px 5px;
+  }
+
+  &-submit {
+    height: 40px;
+    width: 100%;
+  }
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.lead {
+  text-align: center;
+}

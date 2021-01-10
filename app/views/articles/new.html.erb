@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="lead">Crete new article</h1>
+  <% if @article.errors.any? %>
+    <h2>The following errors prevented article from being saved</h2>
+    <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end%>
+  <%= form_with scope: :article, url: articles_path, local: true do |f| %>
+    <p class="from-group">
+      <%= f.label :title, {class: 'form-label'} %>
+      <%= f.text_field :title, {class: 'form-input'} %>
+    </p>
+    <p class="form-group">
+      <%= f.label :description, {class: 'form-label'} %>
+      <%= f.text_area :description, {class: 'form-textarea'} %>
+    </p>
+    <p class="form-group">
+      <%= f.submit class: 'form-submit' %>
+    </p>
+  <% end %>
+</div>
