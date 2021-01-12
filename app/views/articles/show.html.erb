@@ -1,19 +1,18 @@
-<div class="container">
-  <h1 class="text-center mt-4"><%= @article.title %></h1>
-  <div class="row justify-content-center my-4">
-    <div class="col-8">
-      <div class="card shadow">
-        <div class="card-header font-italic bg-light text-center py-3">
-          <h5 class="card-title">by <%= @article.user.username if @article.user %></h5>
-        </div>
-        <div class="card-body text-center">
-          <%= simple_format(@article.description, class: 'card-text text-left') %>
-          <%= link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary my-2 my-sm-0 mr-2' %>
-          <%= link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-outline-danger my-2 my-sm-0' %>
-        </div>
-        <div class="card-footer bg-light text-center text-muted py-3">
-          Created about <%= time_ago_in_words(@article.created_at) %> ago, edited about <%= time_ago_in_words(@article.updated_at) %> ago
-        </div>
+  
+<h1 class="text-center mt-4"><%= @article.title %></h1>
+<div class="row justify-content-center my-4">
+  <div class="col-8">
+    <div class="card shadow">
+      <div class="card-header font-italic bg-light text-center py-3">
+        <h5 class="card-title">by <%= @article.user.username if @article.user %></h5>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_format(@article.description, class: 'card-text text-left') %>
+        <%= link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary my-2 my-sm-0 mr-2' %>
+        <%= link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-outline-danger my-2 my-sm-0' %>
+      </div>
+      <div class="card-footer bg-light text-center text-muted py-3">
+        Created about <%= time_ago_in_words(@article.created_at) %> ago, edited about <%= time_ago_in_words(@article.updated_at) %> ago
       </div>
     </div>
   </div>
