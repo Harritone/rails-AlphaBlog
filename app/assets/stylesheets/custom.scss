@@ -39,3 +39,54 @@ body {
   background: asset-url('jumbotron.jpg') no-repeat center center/cover;
   height: 425px;
 }
+
+// Pagination
+
+.flickr_pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+}
+.flickr_pagination a,
+.flickr_pagination span,
+.flickr_pagination em {
+  padding: 0.2em 0.5em;
+}
+.flickr_pagination .disabled {
+  color: #aaaaaa;
+}
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: #0300c5;
+}
+.flickr_pagination a {
+  border: 1px solid #2793fe;
+  border-radius: 5px;
+  color: #2793fe;
+  text-decoration: none;
+}
+.flickr_pagination a:hover,
+.flickr_pagination a:focus {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+}
+.flickr_pagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em;
+}
+.flickr_pagination .previous_page,
+.flickr_pagination .next_page {
+  border-width: 2px;
+}
+.flickr_pagination .previous_page {
+  margin-right: 1em;
+}
+.flickr_pagination .next_page {
+  margin-left: 1em;
+}
