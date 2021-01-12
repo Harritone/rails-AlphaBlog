@@ -1,10 +1,10 @@
-  
 <h1 class="text-center mt-4"><%= @article.title %></h1>
 <div class="row justify-content-center my-4">
   <div class="col-8">
     <div class="card shadow">
       <div class="card-header font-italic bg-light text-center py-3">
         <h5 class="card-title">by <%= @article.user.username if @article.user %></h5>
+        <%= link_to gravatar_for(@article.user, size: 100), user_path(@article.user) %>
       </div>
       <div class="card-body text-center">
         <%= simple_format(@article.description, class: 'card-text text-left') %>
