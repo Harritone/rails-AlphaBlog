@@ -7,7 +7,7 @@
           <h5 class="card-title"><%= link_to user.username, user %></h5>
         </div>
         <div class="card-body text-center">
-          <%= gravatar_for user, size: 200 %>
+          <%= link_to gravatar_for(user, size: 200), user %>
           <h4 class="my-4"><%= user.articles.count %> articles</h4>
           <%= link_to 'View profile', user, class:'btn btn-outline-success my-2 my-sm-0' %>
           <%= link_to 'Edit', edit_user_path(user), class:'btn btn-outline-primary my-2 my-sm-0' %>
