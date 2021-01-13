@@ -8,8 +8,10 @@
       </div>
       <div class="card-body text-center">
         <%= simple_format(@article.description, class: 'card-text text-left') %>
-        <%= link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary my-2 my-sm-0 mr-2' %>
-        <%= link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-outline-danger my-2 my-sm-0' %>
+        <% if logged_in? and current_user == @article.user %>
+          <%= link_to 'Edit', edit_article_path(@article), class:'btn btn-outline-primary my-2 my-sm-0 mr-2' %>
+          <%= link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-outline-danger my-2 my-sm-0' %>
+        <% end %>
       </div>
       <div class="card-footer bg-light text-center text-muted py-3">
         Created about <%= time_ago_in_words(@article.created_at) %> ago, edited about <%= time_ago_in_words(@article.updated_at) %> ago
