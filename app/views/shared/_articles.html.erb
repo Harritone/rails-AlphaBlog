@@ -13,7 +13,7 @@
           <h3><%= link_to article.title, article, class: 'text-success' %></h3>
           <p><%= truncate(article.description, length: 100) %></p>
           <%= link_to 'View', article, class:'btn btn-outline-success my-2 my-sm-0' %>
-          <% if logged_in? and article.user == current_user %>
+          <% if logged_in? && ( article.user == current_user || current_user.admin? )  %>
             <%= link_to 'Edit', edit_article_path(article), class:'btn btn-outline-primary my-2 my-sm-0' %>
             <%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-outline-danger my-2 my-sm-0' %>
           <% end %>

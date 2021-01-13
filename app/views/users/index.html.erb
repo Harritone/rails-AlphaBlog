@@ -13,8 +13,14 @@
           <%= link_to gravatar_for(user, size: 200), user %>
           <h4 class="my-4"><%= user.articles.count %> articles</h4>
           <%= link_to 'View profile', user, class:'btn btn-outline-success my-2 my-sm-0' %>
-          <% if logged_in? and current_user == user %>
-            <%= link_to 'Edit', edit_user_path(user), class:'btn btn-outline-primary my-2 my-sm-0' %>
+          <% if logged_in? %>
+            <% if current_user == user %>
+              <%= link_to 'Edit', edit_user_path(user), class:'btn btn-outline-primary my-2 my-sm-0' %>
+            <% end %>
+            <% if current_user.admin? %>
+              <%= link_to 'Delete user', user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete account and all associated data?"},
+               class:'btn btn-outline-danger my-2 my-sm-0' %>
+            <% end %>
           <% end %>
         </div>
         <div class="card-footer bg-light text-center text-muted py-3">
