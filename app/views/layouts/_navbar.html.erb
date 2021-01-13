@@ -13,8 +13,10 @@
           Articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Create new article", new_article_path, class: 'dropdown-item' %>
-          <div class="dropdown-divider"></div>
+          <% if logged_in? %>
+            <%= link_to "Create new article", new_article_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+          <% end %>
           <%= link_to "View articles", articles_path, class: 'dropdown-item' %>
         </div>
       </li>
@@ -26,11 +28,17 @@
           <%= link_to 'Sign up', signup_path, class: 'nav-link' %>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to 'Logout', logout_path, method: :delete,  class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to current_user.username, user_path(current_user), class: 'nav-link' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= gravatar_for(current_user, size: 25, class: 'd-inline-block') %> <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'View profile', user_path(current_user), class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Edit profile", edit_user_path(current_user), class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Logout", logout_path, method: :delete, class: 'dropdown-item' %>
+          </div>
         </li>
       <% end %>
     </ul>
