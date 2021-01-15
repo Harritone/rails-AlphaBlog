@@ -18,6 +18,7 @@ before_action :require_same_user, only: [ :edit, :update, :destroy ]
   end
 
   def create
+    byebug
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
@@ -29,7 +30,6 @@ before_action :require_same_user, only: [ :edit, :update, :destroy ]
   end
 
   def update 
-    # @article = Article.new(params.require(:article).permit(:title, :description))
     if @article.update(article_params)
       flash[:notice] = "Article was updated successfully."
       redirect_to @article

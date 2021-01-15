@@ -7,6 +7,11 @@
             <h5 class="card-title">
               by <%= link_to article.user.username, user_path(article.user) %>
             </h5>
+            <% if article.categories.any? %>
+              <% article.categories.each do |category| %>
+                <%= link_to category.name, category, class: 'badge badge-pill badge-info' %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
         <div class="card-body text-center">
