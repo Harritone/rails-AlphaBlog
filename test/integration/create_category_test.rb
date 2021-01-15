@@ -4,9 +4,9 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
   setup do
     @admin_user = User.create(username: 'honk', email: 'honk@mail.com', 
     password: '123456', admin: true)
+    sign_in_as(@admin_user)
   end
   test "getting new for and create category" do
-    sign_in_as(@admin_user)
     get '/categories/new'
     assert_response :success 
     assert_difference 'Category.count', 1 do
@@ -19,7 +19,6 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
   end
 
   test "getting new for and reject invalid category submission" do
-    sign_in_as(@admin_user)
     get '/categories/new'
     assert_response :success 
     assert_no_difference 'Category.count'  do
